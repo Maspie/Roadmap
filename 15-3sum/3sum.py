@@ -7,7 +7,7 @@ class Solution(object):
         nums.sort()
         
         res = []
-        temp = []
+        
         for i,a in enumerate(nums):
 
             if i > 0 and a == (nums[i - 1]):
@@ -24,12 +24,16 @@ class Solution(object):
                 elif (a + nums[l] + nums[r]) < 0:
                     l += 1
 
-                elif (a + nums[l] + nums[r]) == 0:
-                    temp = [a, nums[l], nums[r]]
-                    if temp not in res:
-                        res.append(temp)
+                else:
+                    
+                    res.append([a, nums[l], nums[r]])
                     l+=1
+                    r-=1
                 
-            
+                    while l < r and nums[l-1] == nums[l]:
+                        l += 1
+
+                    while l < r and nums[r+1] == nums[r]:
+                        r -= 1
             
         return res
