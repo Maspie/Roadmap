@@ -16,10 +16,11 @@ class Solution(object):
 
             if prices[r] - prices[l] < 0:
                 l = r
-                r+=1
+                
             
             else:
                 profit = prices[r] - prices[l]
                 max_profit = max(profit, max_profit)
-                r+=1
+                
+            r+=1
         return max_profit
