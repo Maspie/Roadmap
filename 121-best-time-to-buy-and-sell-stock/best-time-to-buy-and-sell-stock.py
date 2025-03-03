@@ -4,15 +4,15 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        
+        if len(prices) < 2:
+            return 0
         l = 0
         r = l+1
         max_profit = 0
         profit = 0
 
-        if len(prices) < 2:
-            return 0
-        while l<r and r<len(prices):
+        
+        while r < len(prices):
 
             if prices[r] - prices[l] < 0:
                 l = r
