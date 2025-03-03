@@ -6,15 +6,21 @@ class Solution(object):
         """
         if len(prices) < 2:
             return 0
+        l = 0
+        r = l+1
+        max_profit = 0
+        profit = 0
+
         
-        l = 0  # Buy pointer
-        max_profit = 0  # Store max profit
+        while r < len(prices):
 
-        for r in range(1, len(prices)):  # ✅ Iterate over the prices
-            if prices[r] < prices[l]:  # ✅ Found a lower buy price
-                l = r  # Update buy pointer
+            if prices[r] < prices[l]:
+                l = r
+                
+            
             else:
-                max_profit = max(max_profit, prices[r] - prices[l])  # ✅ Directly update max_profit
-
+                profit = prices[r] - prices[l]
+                max_profit = max(profit, max_profit)
+                
+            r+=1
         return max_profit
-
