@@ -17,7 +17,7 @@ class Solution(object):
         have = 0
         min_streak = float("inf")
         window = {}
-        res = ""
+        res = [-1, -1]
         for r in range(len(s)):
             char = s[r]
             window[char] = 1 + window.get(char, 0)
@@ -29,14 +29,12 @@ class Solution(object):
 
                 if (r-l+1) < min_streak:
                     min_streak = r-l+1
-                    res = s[l: r+1]
+                    res = [l, r]
 
                 window[s[l]] -= 1
 
                 if s[l] in count_t and window[s[l]] < count_t[s[l]]:
                     have -= 1
-                    l += 1
-                else:
-                    l+=1
-
-        return res
+                l+=1
+        l, r = res
+        return s[l: r+1] if min_streak != float("inf") else ""
