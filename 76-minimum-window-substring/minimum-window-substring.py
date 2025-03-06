@@ -35,6 +35,8 @@ class Solution(object):
 
                 if s[l] in count_t and window[s[l]] < count_t[s[l]]:
                     have -= 1
-                l += 1
+                    l += 1
+                else:
+                    l+=1
 
         return res
