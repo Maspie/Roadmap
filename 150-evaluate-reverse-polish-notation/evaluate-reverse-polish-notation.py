@@ -21,8 +21,7 @@ class Solution(object):
                 stack.append(new)
                 print("mul", new)
             elif c == "/":
-                new = stack[-2] // stack[-1] if stack[-2] * stack[-1] >= 0 else -(-stack[-2] // stack[-1])
-
+                new = int(float(stack[-2]) / stack[-1])
                 stack.pop()
                 stack.pop()
                 stack.append(new)
@@ -36,6 +35,6 @@ class Solution(object):
             else:
                 stack.append(int(c))
         
-        return stack[-1]
+        return stack[0]
 
 
