@@ -9,29 +9,22 @@ class Solution(object):
         for c in tokens:
 
             if c == "+":
-                new = stack[-1] + stack[-2]
-                stack.pop()
-                stack.pop()
-                stack.append(new)
-                print("add", new)
+                stack.append(stack.pop() + stack.pop())
+                
+                
             elif c == "*":
-                new = stack[-1] * stack[-2]
-                stack.pop()
-                stack.pop()
-                stack.append(new)
-                print("mul", new)
+                stack.append(stack.pop() * stack.pop())
+
             elif c == "/":
-                new = int(float(stack[-2]) / stack[-1])
-                stack.pop()
-                stack.pop()
-                stack.append(new)
-                print("div", new)
+                a,b = stack.pop(), stack.pop()
+                stack.append(int(float(b) / a))
+            
+                
             elif c == "-":
-                new = stack[-2] - stack[-1]
-                stack.pop()
-                stack.pop()
-                stack.append(new)
-                print("sub", new)
+                a,b = stack.pop(), stack.pop()                
+                
+                stack.append(b-a)
+                
             else:
                 stack.append(int(c))
         
