@@ -17,7 +17,8 @@ class Solution:
             if n1.val != n2.val:
                 return False
             return isSame(n1.left, n2.left) and isSame(n1.right, n2.right)
-                
+        if not subRoot:
+            return True         
         if not root:
             return False
         if isSame(root, subRoot):
